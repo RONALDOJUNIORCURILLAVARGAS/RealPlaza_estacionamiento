@@ -9,21 +9,21 @@
 
 <body>
     <!-- Inicio de Cabecera -->
-    <header id="header">
+    <nav id="header">
         <div class="wrap">
             <div id="logo">
                 <span class="gear"></span>
             </div>
             <nav id="menu">
                 <ul>
-                    <li><a href="#">RESERVAS</a></li>
+                    <li><a href="{% url 'reserve:page-reserve' %}">RESERVAS</a></li>
                     <li><a href="#">NOSOTROS</a></li>
                     <li><a href="#">SEDES</a></li>
                     <li><a href="#"><img src="{% static 'picture/salir.jpeg' %}"></a></li>
                 </ul>
             </nav>
         </div>
-    </header>
+    </nav>
 
 </body>
 </html>
