@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="CSS/StyleSedesEditarUsuario.css">
+</head>
+
+<body>
+    <!-- Inicio de Cabecera -->
+    <!-- Inicio de Cabecera -->
+    <header id="header">
+        <div class="wrap">
+            <div id="logo">
+                <span class="gear"></span>
+            </div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">RESERVAS</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                    <li><a href="#">SEDES</a></li>
+                    <li><a href="#"><img src="{% static 'picture/salir.jpeg' %}"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- fin de Cabecera -->
+
+    <section class="wrap wrap-content">
+        <section id="info">
+            <!-- Inicio Banner -->
+            <div id="banner">
+                <h1>BIENVENIDO A REAL PLAZA</h1>
+            </div> 
+            <DIV>
+                <h3 id=gonzalito>
+                    Seleccione la sede donde va a realizar su visita y poder reservar
+                </h3>
+            </DIV>
+            <div>  
+
+            </div>
+            <!-- Fin Banner -->
+            <!-- Inicio Tarjetas -->
+        <br>
+            <div id="projects">
+                <article class="project">
+                    <div class="image-wrap">
+                        <form>
+                            <h1>DATOS DEL CLIENTE</h1>
+                          <div id="formulario">
+                            <div id="from">
+                              <label for="name">Nombre Completo:</label>
+                              <input type="text" id="lab" name="user_name">
+                            </div>
+                          
+                            <div id="from">
+                              <label for="mail">Tipo Documento</label>
+                              <select name="TIPODOC">
+                                <option>Dni</option>                               
+                                <option>Carnet Extranjeria</option>
+                               
+                                </select>
+                            </div>                         
+                            <div id="from">
+                              <label for="msg">Numero de Documento:</label>
+                              <input type="text" id="lab" name="user_name">
+                            </div>
+                            <div id="from">
+                                <label for="mail">Fecha Nacimiento:</label>
+                                <input type="date" id="lab" name="Fecha">
+                              </div>
+                          </form>
+                          </div>
+
+                    </div>
+                    <div class="project-info">
+                    
+                    </div>
+                    
+                </article>
+                <article class="project">
+                    <h1>DATOS DEL VEHICULO</h1>
+                    <div id="formulario">
+                    <div class="image-wrap">
+                        <div id="from">
+                            <label for="text">Nro. Placa:</label>
+                            <input type="text" id="lab" name="Placa">
+                          </div>
+                        <div id="login">
+                            <input type="submit" value="Guardar">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        
+                    </div>
+                    </div>
+                </article>
+              
+                
+                
+            </div>
+            <!-- Fin Tarjetas -->
+        </section>
+        
+</body>
+
+</html>

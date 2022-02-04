@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Estilos a la cabecera */
+#header{
+    width: 100%;
+    height: 70px;
+    background-color: #7300e0;
+    font-family: "BebasNeue";
+    color: white;
+}
+#logo{
+    float: left;
+    margin-left: 5%;
+    width: 100px;  
+    background-image: url('../picture/icono.jpeg');
+    height: 70px;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+#menu{
+    float: right;
+    margin-right: 3%;
+    height: 70px;
+    background:transparent;
+}
+#menu ul li{
+    font-size: 18px;
+    display: inline-block;
+    margin: 0px 6px 0px 20px;
+    letter-spacing: 1px;
+    line-height: 70px;
+}
+#menu ul li a{
+    color: white;
+    display: block;
+    text-decoration: none;
+    transition: all 200ms;
+}
+
+#menu ul li a:hover{
+    color: #0f0f0f;
+    transform: scale(1.2,1.2);
+
+}

@@ -1,0 +1,29 @@
+{% load static %}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Barra de Navegacion</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+
+<body>
+    <!-- Inicio de Cabecera -->
+    <header id="header">
+        <div class="wrap">
+            <div id="logo">
+                <span class="gear"></span>
+            </div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">RESERVAS</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                    <li><a href="#">SEDES</a></li>
+                    <li><a href="#"><img src="{% static 'picture/salir.jpeg' %}"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+</body>
+</html>

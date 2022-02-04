@@ -1,0 +1,86 @@
+/* Estilo de barra cabecera */
+*{
+	margin:0px;
+	padding: 0px;
+}
+
+body{
+	background-color: rgb(179, 184, 197);
+}
+.encabezado{
+	width: 100%;
+	margin: 0px;
+	height: 70px;
+    background-color: #7300e0;
+	color: white;
+}
+/*logo de real plaza*/
+#iconorealplaza{
+    float: left; 
+    height: 70px;
+}
+
+#titulo h1{
+	text-align: center;
+	line-height: 70px;
+	color: white;
+}
+
+#header{
+	float:right;
+	margin-right: 30%;
+}
+
+.logotipo{
+	margin: 4%;
+}
+
+/* Estilos de formulario de la ventana acceder */
+form{
+	width:	25%;
+	border: 3px solid rgb(100, 97, 97);
+	margin: 5%;
+	padding: 20px;
+}
+
+label{
+	font-size: 16px;
+	float: center;
+	display: block;
+	width: 100%;
+}
+
+input, text{
+	margin-bottom: 30px;
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid rgb(94, 89, 89);
+}
+
+#main-container{
+    margin: 3%;
+    width: 600px;
+}
+
+table{
+    background-color: white;
+    text-align: left;
+    width: 100%; 
+}
+th,td{
+	padding: 15px;
+}
+thead{
+	background-color: #661c97;
+	border-bottom: solid 5px #a535d1;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover{
+	background-color: #964ee9;
+	color:white;
+}
