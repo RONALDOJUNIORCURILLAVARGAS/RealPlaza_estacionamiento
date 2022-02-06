@@ -1,27 +1,11 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Barra de Navegacion</title>
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="CSS/StyleSedesEditarUsuario.css">
-</head>
+
+    {% load static %}
+
 
 <body>
+    <link rel="stylesheet" href=" {% static 'css/StyleSedesEditarUsuario.css' %} ">
     <!-- Inicio de Cabecera -->
-    <header id="header">
-        <div class="wrap">
-            <div id="logo">
-                <span class="gear"></span>
-            </div>
-            <nav id="menu">
-                <ul>
-                    <li><a href="#">RESERVAS</a></li>
-                    <li><a href="#">NOSOTROS</a></li>
-                    <li><a href="#">SEDES</a></li>
-                    <li><a href="#"><img src="{% static 'picture/salir.jpeg' %}"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    {% include 'navbar.html' %}
     <section class="wrap wrap-content">
         <section id="info">
             <!-- Inicio Banner -->
@@ -29,7 +13,7 @@
                 <h1>BIENVENIDO A REAL PLAZA</h1>
             </div> 
             <DIV>
-                <h3 id=gonzalito>
+                <h3 id="gonzalito">
                     Seleccione la sede donde va a realizar su visita y poder reservar
                 </h3>
             </DIV>

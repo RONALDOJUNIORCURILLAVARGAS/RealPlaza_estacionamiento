@@ -1,0 +1,18 @@
+#lista{
+    display: flex;
+    list-style:none;
+    justify-content: center;
+    margin-top: 5rem;
+}
+#lista li{
+    margin-left: 30px;
+    width: 15rem;
+    height: 3rem;
+    background-color: #7300e0;
+    text-align: center;
+    cursor: pointer;
+}
+#lista li a{
+    text-decoration: none;
+    color: white;
+}

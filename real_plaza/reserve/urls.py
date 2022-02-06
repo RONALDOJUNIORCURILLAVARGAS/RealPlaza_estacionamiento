@@ -1,9 +1,11 @@
-from os import name
-from xml.etree.ElementInclude import include
 from . import views
 from django.urls import path
-app_name='reserve'
+
 urlpatterns = [
-    path('',views.ReserveView.as_view(),name='page-reserve'),  
-    
+    path('',views.index,name='inicio'),  
+    path('salir/',views.salir, name="salir"),
+    path('reserve/',views.reservas,name='page-reserve'),
+    path('reserve/reg/',views.reg_reserve, name='reg-reserve'),
+    path('sedes/',views.sedes,name='sedes'),
+
 ]

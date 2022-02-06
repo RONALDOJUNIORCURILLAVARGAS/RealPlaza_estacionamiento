@@ -6,8 +6,10 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.HomeView.as_view(),name='home'),
-    path('reserve/',include('reserve.urls',namespace='reserve')),
+    #path('',views.HomeView.as_view(),name='home'),
+    #path('reserve/',include('reserve.urls',namespace='reserve')),
+    path('',include('reserve.urls')),
+    path('accounts/',include('django.contrib.auth.urls'))
 
 ]
 
