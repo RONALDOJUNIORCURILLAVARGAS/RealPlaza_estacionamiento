@@ -21,4 +21,7 @@ def reg_reserve(request):
     return render(request,'reserve/registro_reserva.html')
 @login_required
 def sedes(request):
+    #AQUI DEBO cargar el contenido
+
+
     return render(request, 'sedes/sedes.html')
