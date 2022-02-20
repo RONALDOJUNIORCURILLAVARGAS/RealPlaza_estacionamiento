@@ -7,5 +7,6 @@ urlpatterns = [
     path('reserve/',views.reservas,name='page-reserve'),
     path('reserve/reg/',views.reg_reserve, name='reg-reserve'),
     path('sedes/',views.sedes,name='sedes'),
+    # path('',bienvenido,name='inicio'),
 
 ]
