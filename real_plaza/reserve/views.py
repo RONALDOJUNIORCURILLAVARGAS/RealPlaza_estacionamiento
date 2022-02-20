@@ -19,7 +19,8 @@ def reservas(request):
     return render(request,'reserve/reserva.html')
 @login_required
 def reg_reserve(request):
-    return render(request,'reserve/registro_reserva.html')
+    sedes=Sede.objects.order_by('Nombre')
+    return render(request,'reserve/registro_reserva.html',{'sedes':sedes})
 @login_required
 def sedes(request):
     #AQUI DEBO cargar el contenido
