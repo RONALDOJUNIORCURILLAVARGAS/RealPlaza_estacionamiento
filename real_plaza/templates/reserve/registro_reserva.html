@@ -29,8 +29,13 @@
                   <span>SEDE</span>
                 </td>
                 <td><select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  {% if pref %}
+                  {% for p in pref %}
+                  <option selected value="{{p.id}}" class="form-control" >{{p.Nombre}}</option>
+                  {% endfor %}    
+                  {% endif %}
                   {% for sede in sedes %}
-                  <option value="{{sede.id}}">{{sede.Nombre}}</option>
+                  <option value="{{sede.id}}" class="form-control" >{{sede.Nombre}}</option>
                   {% endfor %}
               
                 </select></td>
@@ -44,7 +49,7 @@
               <tr>
                 <td><span>FECHA</span></td>
                 <td>
-                  <input type="date" name="" id="">
+                  <input type="date" class="form-control" name="" id="">
                 </td>
               </tr>
               <tr>
@@ -52,14 +57,14 @@
                   <span>HORA DE INGRESO</span>
                 </td>
                 <td>
-                  <input type="time" name="" id="">
+                  <input type="time" class="form-control" name="" id="">
                 </td>
               </tr>
             </tbody>
   
           </table>
           <div class="boton m-0 row justify-content-center align-items-center">
-            <button class="btn btn-lg col-auto  text-center"  style="background-color: #7300E0;">
+            <button class="btn btn-lg col-auto  text-center"  style="background-color: #7300E0;" onclick="window.location=`{% url 'selecccionar-estacionamiento' %}`">
               <span style="color: white;">PROCESAR</span> 
             </button>
           </div>

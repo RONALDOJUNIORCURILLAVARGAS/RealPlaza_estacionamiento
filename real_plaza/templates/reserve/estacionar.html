@@ -1,0 +1,26 @@
+{% load static %}
+<body>
+{% include 'navbar.html' %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+
+<div class="container">
+    
+    <table class="table site-block-order-table mb-5 mt-5 " style="width: 50%;">
+        <tbody>
+            <tr>
+                <td>
+                    <span>NIVEL</span>
+                </td>
+                <td>
+                    <select class="form-select" name="" id="nivel_elegido" aria-label="Example select with button addon">
+                        <option value="1">Primer</option>
+                        <option value="2">Segundo</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+

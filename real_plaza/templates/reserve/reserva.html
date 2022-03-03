@@ -1,4 +1,5 @@
 {% load static %}
+
 <body>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
   <link rel="stylesheet" href="{% static 'css/reserve.css' %}">
@@ -12,9 +13,9 @@
           <ul id="lista">
 
 
-            <li><a href="" >HISTORIAL DE RESERVAS</a></li>
+            <li><a href="{% url 'historial-reservas' %}">HISTORIAL DE RESERVAS</a></li>
 
-            <li><a href="">ASIGNAR PLACA</a></li>
+  
 
             <li><a href="{% url 'reg-reserve' %}">ACCEDER</a></li>
 

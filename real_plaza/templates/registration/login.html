@@ -13,26 +13,14 @@
     <section class="form">
         <form method="post">
             {% csrf_token %}
-        <div class="form_" id="form_">
-        
-            <i class="fi fi-rr-sign-in-alt"></i><br>
-            <label for="">Nombre</label><br>
-            <input type="text" name="" id=""><br>
-            <label for="">Email </label><br>
-            <input type="email" name="" id=""><br>
-            <label for="">Contraseña</label><br>
-            <input type="password" name="" id=""><br>
-            <button class="button">REGISTRARSE</button>
-            <div onclick="cambio()" style=" border: none; background: none;margin-left: 200px; padding: 20px;font-size: 15px; color:blueviolet; text-decoration: underline;"> ya tengo cuenta </div>
-        </div>
         <div style="height: 600px;" class="form_" id="form_toggle">
             <i class="fi fi-rr-sign-in-alt"></i><br>          
             <label for="">Usuario </label><br>
             <input type="text" name="username" id=""><br>
             <label for="">Contraseña</label><br>
             <input type="password" name="password" id=""><br>
-            <button type="submit" class="button">INICIAR SESION</button>
-            <div onclick="cambio2()" style=" border: none; background: none;margin-left: 200px; padding: 20px;font-size: 15px; color:blueviolet; text-decoration: underline;"> Formulario de registro </div>
+            <button type="submit" class="button">INICIAR SESION</button> 
+            <a href="{% url 'registrar' %}" style=" border: none; background: none;margin-left: 200px; padding: 20px;font-size: 15px; color:blueviolet; text-decoration: underline;"> Formulario de registro </a>
         </div>
         </form>
     </section>

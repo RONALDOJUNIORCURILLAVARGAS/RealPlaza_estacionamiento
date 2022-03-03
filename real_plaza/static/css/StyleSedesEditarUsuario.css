@@ -24,84 +24,14 @@
 }
 
 /* Estilos Generales */
-*{
-    margin: 0px;
-    padding: 0px;
-}
-body{
-    background-image: url('../img/pattern.png');
-}
-.wrap{
-    width: 1250px;
-    margin: 0px auto;
-}
-.gear,.icon{
-    font-family: 'WebSymbolsRegular';
-}
+
+
 
 .clearfix{
      float:none;
      clear: both;
 }
 
-/* Estilos a la cabecera */
-#header{
-    width: 100%;
-    height: 70px;
-    background-color: #7300e0;
-    font-family: "BebasNeue";
-    color: white;
-}
-#logo{
-    float: left;
-    width: 100px;  
-    background-image: url('../img/iconorealplaza.jpg');
-    height: 60px;
-    text-align: center;
-    cursor: pointer;
-    overflow: hidden;
-
-}
-
-#logo:hover h3{
-    animation: fromRight 300ms linear;
-}
-/*@keyframes fromRight{
-    from{
-        transform: translateX(200%);
-    }
-    to{
-        transform: translateX(0%);
-    }
-}
-*/
-#logo:hover{
-    border-radius: 2px;
-    color: black;
-    background-color: #ccc;
-}
-/*#logo .gear{
-    display: block;
-    float: left;
-    font-size: 30px;
-    margin-top: 8px;
-    margin-left: 26px;
-    animation-name: rotate-gear;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}*/
-/*@keyframes rotate-gear{
-    from{
-        transform: rotateZ(0deg);
-    }
-    to{
-        transform: rotateZ(360deg);
-    }
-}*/
-#logo:hover .gear{
-    animation: fromBellow 500ms linear;
-}
 @keyframes fromBellow{
     0%{
         transform: translateY(0%);
@@ -157,30 +87,10 @@ body{
 }
 
 
-#menu{
-    float: right;
-    margin-right: 1%;
-    height: 70px;
-    background:transparent;
-}
-#menu ul li{
-    font-size: 24px;
-    display: inline-block;
-    margin: 0px 6px 0px 20px;
-    letter-spacing: 1px;
-    line-height: 70px;
-}
-#menu ul li a{
-    color: white;
-    display: block;
-    text-decoration: none;
-    transition: all 200ms;
-}
-#menu ul li a:hover{
-    color: black;
-    transform: scale(1.2,1.2);
 
-}
+
+
+
 
 /* BANNER */
 #banner{

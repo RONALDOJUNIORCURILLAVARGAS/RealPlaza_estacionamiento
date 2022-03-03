@@ -30,13 +30,14 @@ class Estacionamiento(models.Model):
     piso_nivel=models.CharField(max_length=1, choices=NIVEL_CHOICES)
     estado_disponibilidad=models.BooleanField(default=False)
     def __str__(self):
-        return f"El id es : {self.id}, Nivel: {self.piso_nivel}"
+        return f"La zona es : {self.zona}, Nivel: {self.piso_nivel} y Número:{self.numero}"
     
 
 class Reserva(models.Model):
-
+    Id_user=models.ForeignKey(User,on_delete=models.CASCADE)
     Id_sede=models.ForeignKey(Sede,on_delete=models.SET_NULL,null=True)
     placa=models.CharField(max_length=7)
     fecha=models.DateField()
     hora= models.TimeField()
+    Pago=models.IntegerField()
     Id_estacionamiento=models.ForeignKey(Estacionamiento,on_delete=models.SET_NULL,null=True)
