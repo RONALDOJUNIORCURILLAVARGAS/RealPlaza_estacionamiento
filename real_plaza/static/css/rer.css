@@ -30,9 +30,13 @@
 .fondo{
     background: url(../picture/fondo.png);
     width: 100%;
-    height: 100vh;
- background-clip: border-box;
- background-size: cover;
+    height: 90vh;
+    background-clip: border-box;
+    background-size: cover;
+    box-shadow: 0px 10px 10px -6px black;
+}
+.fondo:hover {
+    filter: saturate(180%);
 }
 .fondo .title{
     color: #ffff;
@@ -40,9 +44,9 @@
    left: 1110px;
     width: 450px;
     font-size: 60px;
+    text-align: center;
     position: relative;
     top: 430px;
-
 }
 
 .fondo .btn{
@@ -50,6 +54,7 @@
  text-align: center;
  align-items: center;
  margin-top: 450px;  
+
 }
 .fondo .btn button{
     width: 20px;
@@ -76,9 +81,13 @@ top: 100px;
 padding: 30px;
 text-align: center;
 align-items: center;
-color: black;
-background: #FFFFFF;
+background-color: #A0DAD1;
 border-radius: 20px;
+box-shadow: 0px 10px 10px -6px black;
+}
+.card_1:hover{
+    background-color: #376860;
+    color: whitesmoke;
 }
 .conteiner2 {
     width: 100%;
@@ -90,15 +99,21 @@ border-radius: 20px;
     justify-content: space-around;
 }
 .conteiner2 .card-child{
-    width: 50%;
+    width: 500px;
     text-align: center;
-align-items: center;
+    height: 300px;
+    align-items: center;
     color: black;
-    background: rgba(255, 255, 255, 0.99);
+    background-color: #B798DA;
     border-radius: 20px;
     padding: 30px;
     margin: 0px 20px;
     margin-bottom: 20px;
+    box-shadow: 0px 10px 10px -6px black;
+}
+.card-child:hover{
+    background-color: #751FD7;
+    color: whitesmoke;
 }
 
 /* FORM */
@@ -154,4 +169,3 @@ align-items: center;
    background: #7300E0;
 }
 
-/*  */

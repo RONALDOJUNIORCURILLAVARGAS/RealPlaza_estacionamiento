@@ -25,22 +25,25 @@
             <!-- Fin Banner -->
             <!-- Inicio Tarjetas -->
             <br>
-            <div id="projects" style="display: flex;">
+            <div id="projects" style="display: flex;  ">
                 {% for sede in sedes %}
-                <article class="project" >
-                    <div class="image-wrap">
-                        <img src="{{ sede.Image_sede.url }}" style="height: 200px;"/>
-                    </div>
-                    <div class="project-info">
-                        <a href="{% url 'reg-reserve-sede' sede.id %}">{{sede.Nombre}}</a>
-                        <p>{{sede.Direccion}}</p>
-                        <br>
-                            <div id="aforo">
-                                <div id="circulo"><p id="numAforo">{{sede.Aforo_actual}}/{{sede.Aforo_total}}</p></div><h3 id="letraAf">Aforo actual</h3>
-                            </div>
+                
+
+                <div class="card" style="width: 20rem; height: 25rem;">
+                    
+                    <img src="{{ sede.Image_sede.url }}" class="card-img-top" style="height: 200px;"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{{sede.Nombre}}</h5>
+                        <p class="card-text">La situación actual del estacionamiento es :
+                            
+                            <a href="#" class="btn btn-secondary">{{sede.Aforo_actual}} </a>
+                             <span> disponible de </span>
+                             <a href="#" class="btn btn-secondary">{{sede.Aforo_total}} </a>
+                        </p>
+                        <button onclick="window.location=`{% url 'reg-reserve-sede' sede.id %}`" class="btn btn-primary">Reserva ya!</button>
                     </div>
                     
-                </article>
+                </div>
                 {% endfor %}
 
            

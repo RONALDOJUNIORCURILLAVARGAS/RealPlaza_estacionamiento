@@ -16,3 +16,6 @@
     text-decoration: none;
     color: white;
 }
+.image-real:hover{
+    filter: blur(5px);
+}
