@@ -10,19 +10,30 @@ flex-wrap: wrap;
     height: 2rem;
     border-radius: 50%;
     background-color: red;
+    border: 1px solid black;
 
 }
 .c-verde{
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background-color: green;   
+    background-color: green;  
+    border: 1px solid black; 
 }
 .c-disponible{
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     background-color: #C4C4C4;
+    border: 1px solid black;
+    
+}
+.c-seleccionado{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: yellow;
+    border: 1px solid black;
     
 }
 .pistah{
@@ -39,4 +50,7 @@ flex-wrap: wrap;
 }
 .estaciones:hover{
     transform: scale(1.2,1.2);
+}
+.procesar{
+    background-color: rgb(138, 52, 218);
 }
