@@ -1,0 +1,42 @@
+
+.caja{
+height: 10rem;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.c-rojo{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: red;
+
+}
+.c-verde{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: green;   
+}
+.c-disponible{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    
+}
+.pistah{
+    height: 5rem;
+}
+.estaciones{
+    width: 2rem;
+    height: 50px;
+    margin: 0.5rem;
+    background: #C4C4C4;
+    border: 1px solid black;
+    cursor: pointer;
+
+}
+.estaciones:hover{
+    transform: scale(1.2,1.2);
+}
