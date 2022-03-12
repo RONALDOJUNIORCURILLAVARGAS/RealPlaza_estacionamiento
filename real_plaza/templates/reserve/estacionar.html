@@ -15,8 +15,11 @@
                         </td>
                         <td>
                             <select class="form-select" name="" id="nivel_elegido" aria-label="Example select with button addon">
-                                <option value="1">Primer</option>
-                                <option value="2">Segundo</option>
+                                {% for niv in nivel %}
+                                
+                                <option value="{{niv.id}}">{{niv.nombre}}</option>
+                                {% endfor %}
+                                
                             </select>
                         </td>
                     </tr>

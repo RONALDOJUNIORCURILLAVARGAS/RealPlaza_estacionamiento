@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from reserve.models import Sede,Reserva,Estacionamiento
+from reserve.models import Sede,Reserva,Estacionamiento,Niveles
 from reserve.forms import RegistroForm
 
 class RegistrarUsuario(CreateView):
@@ -70,4 +70,5 @@ def reg_reserve_sede(request,id):
 
 @login_required
 def estacionar(request):
-    return render(request,'reserve/estacionar.html')
+    nivel=Niveles.objects.all()
+    return render(request,'reserve/estacionar.html',{'nivel':nivel})
