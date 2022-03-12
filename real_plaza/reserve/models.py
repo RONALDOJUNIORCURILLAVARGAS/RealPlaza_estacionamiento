@@ -12,25 +12,22 @@ class Sede(models.Model):
     Image_sede=models.ImageField(upload_to='sede_images')
     def __str__(self):
         return f'Sede {self.id}:{self.Nombre}'
-
+class Niveles(models.Model):
+    nombre=models.CharField(max_length=150)
+    def __str__(self):
+        return f'Nivel: {self.nombre}'
+class Zona(models.Model):
+    nombre=models.CharField(max_length=300)
+    def __str__(self):
+        return f' ZONA: {self.nombre}'
+    
 class Estacionamiento(models.Model):
-    ADDRESS_CHOICES=(
-        ('A','Zona A'),
-        ('B','Zona B'),
-        ('C','Zona C'),
-        ('D','Zona D'),
-    )
-    NIVEL_CHOICES=(
-        ('1','Primer Nivel'),
-        ('2','Segundo Nivel'),
-        ('3','Tercer Nivel'),
-    )
-    zona=models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    id_zona=models.ForeignKey(Zona,on_delete=models.SET_NULL,null=True)
     numero=models.IntegerField()
-    piso_nivel=models.CharField(max_length=1, choices=NIVEL_CHOICES)
+    id_nivel=models.ForeignKey(Niveles,on_delete=models.SET_NULL,null=True)
     estado_disponibilidad=models.BooleanField(default=False)
     def __str__(self):
-        return f"La zona es : {self.zona}, Nivel: {self.piso_nivel} y Número:{self.numero}"
+        return f"La zona es : {self.id_zona}, Nivel: {self.id_nivel} y Número:{self.numero}"
     
 
 class Reserva(models.Model):

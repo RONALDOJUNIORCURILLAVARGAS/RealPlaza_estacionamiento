@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from reserve.models import Sede,Reserva
+from reserve.models import Sede,Reserva,Estacionamiento
 from reserve.forms import RegistroForm
 
 class RegistrarUsuario(CreateView):
@@ -64,7 +64,6 @@ def Verhistorial(request):
 
 @login_required
 def reg_reserve_sede(request,id):
-    print(id)
     pref=Sede.objects.filter(id=id).order_by('Nombre')
     sedes=Sede.objects.all().order_by('Nombre').exclude(id=id)
     return render(request,'reserve/registro_reserva.html',{'sedes':sedes,'pref':pref})
