@@ -73,9 +73,11 @@
                     </div>
                     
                 </div>
+
+
                 <div class="row mt-5">
                      <div class="col-5 d-flex justify-content-center">
-                       <button type="submit" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
+                       <button onclick="window.location=`{% url 'reg-reserve' %}`" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
                      </div>   
                     
                 </div>
@@ -83,7 +85,16 @@
             </div>
 
     </form>
-    
+     <!-- AQUI EMPIEZA EL COMENTARIO-->
+    <div class="row mt-5">
+        <div class="col-5 d-flex justify-content-center">
+          <button onclick="window.location=`{% url 'pagar' %}`" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
+        </div>   
+       
+   </div>
+
+    <!-- TERMINA AQUI-->
+
 <script src="{% static 'js/cambio_color.js' %}"></script>
 </div>
 

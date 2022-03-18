@@ -1,11 +1,10 @@
-from pyexpat import model
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 
-
-
+from django.conf import settings
 from django.shortcuts import redirect,render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -72,3 +71,18 @@ def reg_reserve_sede(request,id):
 def estacionar(request):
     nivel=Niveles.objects.all()
     return render(request,'reserve/estacionar.html',{'nivel':nivel})
+
+@login_required
+def pagar(request):
+    return render(request,'reserve/payment.html')
+
+
+
+class Pagos(generic.TemplateView):
+    template_name='reserve/payment.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['PAYPAL_CLIENT_ID'] = settings.PAYPAL_CLIENT_ID
+        context['CALLBACK_URL']=self.request.build_absolute_uri(reverse("inicio"))  
+        return context
+    

@@ -1,15 +1,19 @@
 import os
-
+import environ
 from pathlib import Path
 
 
+env=environ.Env()
+environ.Env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-SECRET_KEY = 'django-insecure-4q^c9+m&k9zw_ti3#01_-aw%ce3q%w6xt_14=a#%r=t%r-g%3k'
+SECRET_KEY=env('SECRET_KEY')
+#SECRET_KEY = 'django-insecure-4q^c9+m&k9zw_ti3#01_-aw%ce3q%w6xt_14=a#%r=t%r-g%3k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
+#DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -113,6 +117,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+PAYPAL_CLIENT_ID=env('PAYPAL_SANDBOX_CLIENT_ID')
+PAYPAL_SECRET_KEY=env('PAYPAL_SANDBOX_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
