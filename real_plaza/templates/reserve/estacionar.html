@@ -5,8 +5,13 @@
 <link rel="stylesheet" href="{% static 'css/cajas.css' %}">
 
 <div class="container">
-    <form action="" method="post">
+    <form action="{% url 'pagos' %}" method="post">
         {% csrf_token %}
+        <input type="hidden" name="sede" value="{{ id_sede }}">
+        <input type="hidden" name="placa" value="{{ placa }}">
+        <input type="hidden" name="fecha" value="{{ fecha }}">
+        <input type="hidden" name="hora" value="{{ hora }}">
+        <input type="hidden" name="estacionamiento" value="" id="estacion">
         <table class="table site-block-order-table mb-5 mt-5 " style="width: 50%;">
                 <tbody>
                     <tr>
@@ -14,7 +19,7 @@
                             <span>NIVEL</span>
                         </td>
                         <td>
-                            <select class="form-select" name="" id="nivel_elegido" aria-label="Example select with button addon">
+                            <select class="form-select" name="nivel_estacionamiento" id="nivel_elegido" aria-label="Example select with button addon">
                                 {% for niv in nivel %}
                                 
                                 <option value="{{niv.id}}">{{niv.nombre}}</option>
@@ -77,7 +82,7 @@
 
                 <div class="row mt-5">
                      <div class="col-5 d-flex justify-content-center">
-                       <button onclick="window.location=`{% url 'reg-reserve' %}`" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
+                       <button type="submit" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
                      </div>   
                     
                 </div>
@@ -85,15 +90,7 @@
             </div>
 
     </form>
-     <!-- AQUI EMPIEZA EL COMENTARIO-->
-    <div class="row mt-5">
-        <div class="col-5 d-flex justify-content-center">
-          <button onclick="window.location=`{% url 'pagar' %}`" class="btn btn-primary border-0 btn-lg col-auto" style="background-color: #7300E0;" >Procesar</button>  
-        </div>   
-       
-   </div>
-
-    <!-- TERMINA AQUI-->
+    
 
 <script src="{% static 'js/cambio_color.js' %}"></script>
 </div>

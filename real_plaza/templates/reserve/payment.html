@@ -20,19 +20,19 @@
                       <span>PLACA</span>
                     </td>
                     <td>
-                        <span>M1G365</span>
+                        <span>{{ placa }}</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span>LUGAR</span></td>
                     <td>
-                      <span>A1 </span>
+                      <span>A{{ estacionamiento }}</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span>COSTO RESERVA</span></td>
                     <td>
-                      <span>$ 1.00</span>
+                      <span> $ 1.00</span>
                     </td>
                   </tr>
                   <tr>
@@ -40,7 +40,7 @@
                       <span>FECHA</span>
                     </td>
                     <td>
-                      <span>18/03/2022</span>
+                      <span>{{ fecha }}</span>
                     </td>
                   </tr>
                   <tr>
@@ -48,7 +48,7 @@
                       <span>HORA</span>
                     </td>
                     <td>
-                      <span>1:00 PM</span>
+                      <span>{{ tiempo }}</span>
                     </td>
                   </tr>
                   <tr>
@@ -56,7 +56,7 @@
                       <span>SEDE</span>
                     </td>
                     <td>
-                      <span>PURUCHUCO</span>
+                      <span>{{ nombre_sede }}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -97,7 +97,7 @@
               //var transaction = orderData.purchase_units[0].payments.captures[0];
               //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
               alert('Pgo realizado correctamente');
-              window.location=`{% url 'inicio' %}`;
+              window.location=`{% url 'pago-validado' sede estacionamiento placa fecha hora minutos %}`;
 
           // When ready to go live, remove the alert and show a success message within this page. For example:
           // var element = document.getElementById('paypal-button-container');

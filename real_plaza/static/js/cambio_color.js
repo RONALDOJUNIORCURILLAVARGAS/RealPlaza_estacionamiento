@@ -15,6 +15,7 @@
 })();
 let contador_reservas=0
 let estilo_anterior=null;
+
 function cambio(id) {
     const element=document.getElementById('caja'+id);
     if(element.style.background=='yellow' && contador_reservas==1)
@@ -25,7 +26,7 @@ function cambio(id) {
     else if( (element.style.background=='rgb(196, 196, 196)' || element.style.background=='green') &&contador_reservas==0){
         estilo_anterior=element.style.background
         element.style.background='yellow'
-       
+        document.getElementById('estacion').value=id
        ++contador_reservas
     } 
 }

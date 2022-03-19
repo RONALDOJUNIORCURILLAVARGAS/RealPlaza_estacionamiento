@@ -13,7 +13,8 @@ urlpatterns = [
     path('reserve/historialreserve/',views.Verhistorial,name='historial-reservas'),
     path('reserve/reg/reservar/',views.estacionar,name='selecccionar-estacionamiento'),
     path('reserve/reg/reservar/payment/',views.Pagos.as_view(),name='pagar'),
-    
+    path('reserve/reg/reservar/pagos/',views.pagar,name='pagos'),
+    path('reserve/reg/reservar/pagos/<int:sede>/<int:estacionamiento>/<slug:placa>/<slug:fecha>/<slug:hora>/<slug:minuto>',views.pago_validado,name='pago-validado')
     # path('',bienvenido,name='inicio'),
 
 ]

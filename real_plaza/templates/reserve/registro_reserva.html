@@ -20,56 +20,78 @@
     <div class="bod" >
       <div class="section1">
         <div class="container" style="height: 50vh;">
-          <table class="table site-block-order-table mb-5 mt-5 " >
+           <form action="{% url 'selecccionar-estacionamiento' %}" method="post">
+            {% csrf_token %}
+              <table class="table site-block-order-table mb-5 mt-5 " >
+
+                        
+                          <tbody >
+
+                            <tr>
+                              <td>
+                                <span>SEDE</span>
+                              </td>
+                              <td><select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="id_sede">
+                                {% if pref %}
+                                {% for p in pref %}
+                                <option selected value="{{p.id}}" class="form-control" >{{p.Nombre}}</option>
+                                {% endfor %}    
+                                {% endif %}
+                                {% for sede in sedes %}
+                                <option value="{{sede.id}}" class="form-control" >{{sede.Nombre}}</option>
+                                {% endfor %}
+                            
+                              </select></td>
+                            </tr>
+                            <tr>
+                              <td><span>PLACA</span></td>
+                              <td>
+                                <input id="placa" type="text" name="placa" class="form-control" placeholder="ABC-123    o  ABC123" aria-label="Username" aria-describedby="addon-wrapping">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><span>FECHA</span></td>
+                              <td>
+                                <input type="date" class="form-control" name="fecha" id="fecha_registro">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span>HORA DE INGRESO</span>
+                              </td>
+                              <td>
+                                <input type="time" class="form-control" name="hora" id="hora_ingreso">
+                              </td>
+                            </tr>
+                          </tbody>
+                
+              </table>
+              <div class="boton m-0 row justify-content-center align-items-center">
+                <script>
+                  function registro() {
+                    let sede=document.getElementById('inputGroupSelect03').value
+                    let placa=document.getElementById('placa').value
+                    let fecha=document.getElementById('fecha_registro').value
+                    let hora_ingreso=document.getElementById('hora_ingreso').value
+                    alert(sede+'\n'+placa+'\n'+fecha+'\n'+hora_ingreso);
+                    
+                    window.location=`{% url 'selecccionar-estacionamiento' %}`
+                  }
+                </script>
+                
+                <button class="btn btn-lg col-auto  text-center" type="submit"  style="background-color: #7300E0;" >
+                  <span style="color: white;">PROCESAR</span> 
+                </button>
+
+                
+                <!-- {% comment %} <button class="btn btn-lg col-auto  text-center"  style="background-color: #7300E0;" onclick="registro()">
+                  <span style="color: white;">PROCESAR</span> 
+                </button>
+                 {% endcomment %} -->
+              </div>
+            </form>
            
-            <tbody >
-
-              <tr>
-                <td>
-                  <span>SEDE</span>
-                </td>
-                <td><select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-                  {% if pref %}
-                  {% for p in pref %}
-                  <option selected value="{{p.id}}" class="form-control" >{{p.Nombre}}</option>
-                  {% endfor %}    
-                  {% endif %}
-                  {% for sede in sedes %}
-                  <option value="{{sede.id}}" class="form-control" >{{sede.Nombre}}</option>
-                  {% endfor %}
-              
-                </select></td>
-              </tr>
-              <tr>
-                <td><span>PLACA</span></td>
-                <td>
-                  <input type="text" class="form-control" placeholder="ABC-123    o  ABC123" aria-label="Username" aria-describedby="addon-wrapping">
-                </td>
-              </tr>
-              <tr>
-                <td><span>FECHA</span></td>
-                <td>
-                  <input type="date" class="form-control" name="" id="">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span>HORA DE INGRESO</span>
-                </td>
-                <td>
-                  <input type="time" class="form-control" name="" id="">
-                </td>
-              </tr>
-            </tbody>
-  
-          </table>
-          <div class="boton m-0 row justify-content-center align-items-center">
-            <button class="btn btn-lg col-auto  text-center"  style="background-color: #7300E0;" onclick="window.location=`{% url 'selecccionar-estacionamiento' %}`">
-              <span style="color: white;">PROCESAR</span> 
-            </button>
-          </div>
-          
-
+        
 
         </div>
       </div>

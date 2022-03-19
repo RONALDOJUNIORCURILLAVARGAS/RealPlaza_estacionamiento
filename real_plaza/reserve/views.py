@@ -1,3 +1,4 @@
+from winreg import QueryValue
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
@@ -69,14 +70,54 @@ def reg_reserve_sede(request,id):
 
 @login_required
 def estacionar(request):
-    nivel=Niveles.objects.all()
-    return render(request,'reserve/estacionar.html',{'nivel':nivel})
+    context={
+        "id_sede":request.POST["id_sede"],
+        "placa":request.POST["placa"],
+        "fecha":request.POST["fecha"],
+        "hora":request.POST["hora"],
+        "nivel":Niveles.objects.all()
+    }
+    return render(request,'reserve/estacionar.html',context)
 
 @login_required
 def pagar(request):
-    return render(request,'reserve/payment.html')
+    sede=request.POST["sede"]
+    nombre=""
+    nombrar_sede=Sede.objects.filter(id=sede)
+    tiempo=request.POST["hora"]
+    hora=tiempo[0:2]
+    minuto=tiempo[3:5]
+    
+    print(hora)
+    print(minuto)
+    
+    for n in nombrar_sede:
+        nombre=n.Nombre
+    context={
+        "PAYPAL_CLIENT_ID":settings.PAYPAL_CLIENT_ID,
+        "CALLBACK_URL":request.build_absolute_uri(reverse("inicio")),
+        "sede":request.POST["sede"],
+        "placa":request.POST["placa"],
+        "fecha":request.POST["fecha"],
+        "tiempo":request.POST["hora"],
+        "nivel_estacionamiento":request.POST["nivel_estacionamiento"],
+        "estacionamiento":request.POST["estacionamiento"],
+        "nombre_sede":nombre,
+        "hora":hora,
+        "minutos":minuto,
+    }
+    return render(request,'reserve/payment.html',context)
 
-
+@login_required
+def pago_validado(request,sede,estacionamiento,placa,fecha,hora,minuto):
+    tiempo=hora+':'+minuto
+    print("Placa: " + placa)
+    print("la sede es : "+str(sede) )
+    print("El estacionamiento es :" + str(estacionamiento))
+    print("Fecha: " + fecha)
+    print("Hora: " + tiempo)
+    #return render(request,'index.html')
+    return redirect('inicio')
 
 class Pagos(generic.TemplateView):
     template_name='reserve/payment.html'
