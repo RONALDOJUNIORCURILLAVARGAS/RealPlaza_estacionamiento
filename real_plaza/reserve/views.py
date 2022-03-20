@@ -56,7 +56,8 @@ def sedes(request):
 @login_required
 def Verhistorial(request):
     #Listar con JOIN
-    lista=Reserva.objects.all().select_related('Id_sede')
+    userid = request.user.id
+    lista=Reserva.objects.all().select_related('Id_sede').filter(Id_user=userid)
     """ print(reser.query)
     for res in reser:
         print(res.fecha,' || ',res.Id_sede.Nombre) """
@@ -70,14 +71,21 @@ def reg_reserve_sede(request,id):
 
 @login_required
 def estacionar(request):
-    context={
-        "id_sede":request.POST["id_sede"],
-        "placa":request.POST["placa"],
-        "fecha":request.POST["fecha"],
-        "hora":request.POST["hora"],
-        "nivel":Niveles.objects.all()
-    }
-    return render(request,'reserve/estacionar.html',context)
+    id_sede=request.POST["id_sede"]
+    placa=request.POST["placa"]
+    fecha=request.POST["fecha"]
+    hora=request.POST["hora"]
+    if len(placa)!=0 and len(id_sede)!=0 and len(fecha)!=0 and len(hora)!=0:
+        context={
+            "id_sede":request.POST["id_sede"],
+            "placa":request.POST["placa"],
+            "fecha":request.POST["fecha"],
+            "hora":request.POST["hora"],
+            "nivel":Niveles.objects.all()
+        }
+        return render(request,'reserve/estacionar.html',context)
+    else:
+        return redirect('reg-reserve')
 
 @login_required
 def pagar(request):
@@ -87,35 +95,63 @@ def pagar(request):
     tiempo=request.POST["hora"]
     hora=tiempo[0:2]
     minuto=tiempo[3:5]
-    
+    estacionamiento=request.POST["estacionamiento"]
+
+    print(estacionamiento)
     print(hora)
     print(minuto)
-    
-    for n in nombrar_sede:
-        nombre=n.Nombre
-    context={
-        "PAYPAL_CLIENT_ID":settings.PAYPAL_CLIENT_ID,
-        "CALLBACK_URL":request.build_absolute_uri(reverse("inicio")),
-        "sede":request.POST["sede"],
-        "placa":request.POST["placa"],
-        "fecha":request.POST["fecha"],
-        "tiempo":request.POST["hora"],
-        "nivel_estacionamiento":request.POST["nivel_estacionamiento"],
-        "estacionamiento":request.POST["estacionamiento"],
-        "nombre_sede":nombre,
-        "hora":hora,
-        "minutos":minuto,
-    }
-    return render(request,'reserve/payment.html',context)
+    if len(estacionamiento)!=0 and estacionamiento!='0':
+        for n in nombrar_sede:
+            nombre=n.Nombre
+        context={
+            "PAYPAL_CLIENT_ID":settings.PAYPAL_CLIENT_ID,
+            "CALLBACK_URL":request.build_absolute_uri(reverse("inicio")),
+            "sede":request.POST["sede"],
+            "placa":request.POST["placa"],
+            "fecha":request.POST["fecha"],
+            "tiempo":request.POST["hora"],
+            "nivel_estacionamiento":request.POST["nivel_estacionamiento"],
+            "estacionamiento":request.POST["estacionamiento"],
+            "nombre_sede":nombre,
+            "hora":hora,
+            "minutos":minuto,
+        }
+        return render(request,'reserve/payment.html',context)
+    else:
+        context={
+            "id_sede":request.POST["sede"],
+            "placa":request.POST["placa"],
+            "fecha":request.POST["fecha"],
+            "hora":request.POST["hora"],
+            "nivel":Niveles.objects.all()
+        }
+        return render(request,'reserve/estacionar.html',context)
 
 @login_required
 def pago_validado(request,sede,estacionamiento,placa,fecha,hora,minuto):
+    
+    
+    reserva=Reserva()
+    
     tiempo=hora+':'+minuto
     print("Placa: " + placa)
     print("la sede es : "+str(sede) )
     print("El estacionamiento es :" + str(estacionamiento))
     print("Fecha: " + fecha)
     print("Hora: " + tiempo)
+
+    userid = request.user.id
+	
+    print('Id del usuario :' + str(userid))
+    reserva.Id_user_id=userid
+    reserva.Id_sede_id=sede
+    reserva.placa=placa 
+    reserva.fecha=fecha
+    reserva.hora=tiempo
+    reserva.Pago=1
+    reserva.Id_estacionamiento_id=estacionamiento
+    
+    reserva.save()
     #return render(request,'index.html')
     return redirect('inicio')
 

@@ -21,6 +21,7 @@ function cambio(id) {
     if(element.style.background=='yellow' && contador_reservas==1)
     { 
        element.style.background=estilo_anterior
+       document.getElementById('estacion').value=0
        --contador_reservas
     }
     else if( (element.style.background=='rgb(196, 196, 196)' || element.style.background=='green') &&contador_reservas==0){
