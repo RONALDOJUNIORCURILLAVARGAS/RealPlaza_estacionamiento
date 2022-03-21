@@ -77,12 +77,13 @@ def estacionar(request):
     hora=request.POST["hora"]
     userid = request.user.id
     if len(placa)!=0 and len(id_sede)!=0 and len(fecha)!=0 and len(hora)!=0:
+        print(id_sede)
         estacionamiento=Estacionamiento.objects.all()
-        reservado=Reserva.objects.all().filter()
+        reservado=Reserva.objects.all().filter(Id_sede=id_sede)
 
-        print("la fecha original es :"+fecha)
+        #print("la fecha original es :"+fecha)
         reserva=[]
-        print(type(reserva))
+        #print(type(reserva))
         for res in reservado:
             if (str(res.fecha)==fecha):
                 h_ini_reservada=str(res.hora)
@@ -95,18 +96,18 @@ def estacionar(request):
                     """ if(<min_sele):
                         hour=hour+1
                         hour=str(hour) """
-                    print(hour_res)
+                   # print(hour_res)
                     """ h_fin_reservada=str(res.hora + 1)
                     if(h_ini_reservada<= hora and hora<=h_fin_reservada):
                         print("hora seleccionada : "+hora) """
                     reserva.append(str(res.Id_estacionamiento_id))  
-                    print("La fecha reservada es: "+str(res.fecha)+"y la hora es:"+str(res.hora))
-        print(reserva)
-        for s in reserva:
+                    #print("La fecha reservada es: "+str(res.fecha)+"y la hora es:"+str(res.hora))
+        #print(reserva)
+        #for s in reserva:
 
-            print(type(s))
-        for r in estacionamiento:
-            print(type(r))
+            #print(type(s))
+        #for r in estacionamiento:
+            #print(type(r))
         context={
             "id_sede":request.POST["id_sede"],
             "placa":request.POST["placa"],
