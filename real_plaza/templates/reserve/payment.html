@@ -74,7 +74,7 @@
 </div>
 
 
-<script src="https://www.paypal.com/sdk/js?client-id={{ PAYPAL_CLIENT_ID }}"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{ PAYPAL_CLIENT_ID }}&currency=USD"></script>
 <script>
     paypal.Buttons({
 
@@ -96,7 +96,7 @@
               console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
               //var transaction = orderData.purchase_units[0].payments.captures[0];
               //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-              alert('Pgo realizado correctamente');
+              alert('Pago realizado correctamente');
               window.location=`{% url 'pago-validado' sede estacionamiento placa fecha hora minutos %}`;
 
           // When ready to go live, remove the alert and show a success message within this page. For example:
