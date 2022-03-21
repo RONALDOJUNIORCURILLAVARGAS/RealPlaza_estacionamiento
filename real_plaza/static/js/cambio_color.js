@@ -1,13 +1,31 @@
 //Funcion para ejecutarse siempre al cargar
 (()=>{
-    
-    let  caja_reservada=document.getElementById('caja1')
-    let caja_sugerida=document.getElementById('caja2')
+    let res=document.getElementById('reservado')
+    let cadena=res.value
+
+    let caracter=cadena.split('')
+    let cad=[]
+    //VALORES ACEPTADOS ENTRE 0-9
+    for(let i=0;i<caracter.length;i++){
+        if(caracter[i]!=`'` && caracter[i]!=`[` && caracter[i]!=`]` && caracter[i]!=` ` && caracter[i]!=`,`){
+            cad.push(caracter[i])
+        }
+    }
+
+
+    let caja_sugerida=document.getElementById('caja8')
     let cajas=document.getElementsByClassName('estaciones')
     for (let i = 0; i < cajas.length; i++) {
         cajas[i].style.background='rgb(196, 196, 196)'        
     }
-    caja_reservada?(caja_reservada.style.background='red'):(caja_reservada)
+     for(let g=0;g<cad.length;g++){
+        document.getElementById('caja'+cad[g]).style.background='red'
+    }
+
+    //caja_reservada?(caja_reservada.style.background='red'):(caja_reservada)
+
+
+
     caja_sugerida?(caja_sugerida.style.background='green') :(caja_sugerida)
     for (let i = 0; i < cajas.length; i++) {
         console.log(cajas[i].style.background )      

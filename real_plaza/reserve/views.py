@@ -2,7 +2,7 @@ from winreg import QueryValue
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
-
+import time
 from django.conf import settings
 from django.shortcuts import redirect,render
 from django.urls import reverse, reverse_lazy
@@ -75,13 +75,46 @@ def estacionar(request):
     placa=request.POST["placa"]
     fecha=request.POST["fecha"]
     hora=request.POST["hora"]
+    userid = request.user.id
     if len(placa)!=0 and len(id_sede)!=0 and len(fecha)!=0 and len(hora)!=0:
+        estacionamiento=Estacionamiento.objects.all()
+        reservado=Reserva.objects.all().filter()
+
+        print("la fecha original es :"+fecha)
+        reserva=[]
+        print(type(reserva))
+        for res in reservado:
+            if (str(res.fecha)==fecha):
+                h_ini_reservada=str(res.hora)
+                hour_res=int(str(res.hora)[0:2])
+                minu_res=int(str(res.hora)[3:5])
+                hour_sel=int(str(hora)[0:2])
+                min_sele=int(str(hora)[3:5])
+                if(hour_res==hour_sel):
+                    #Horas y minutos reservados
+                    """ if(<min_sele):
+                        hour=hour+1
+                        hour=str(hour) """
+                    print(hour_res)
+                    """ h_fin_reservada=str(res.hora + 1)
+                    if(h_ini_reservada<= hora and hora<=h_fin_reservada):
+                        print("hora seleccionada : "+hora) """
+                    reserva.append(str(res.Id_estacionamiento_id))  
+                    print("La fecha reservada es: "+str(res.fecha)+"y la hora es:"+str(res.hora))
+        print(reserva)
+        for s in reserva:
+
+            print(type(s))
+        for r in estacionamiento:
+            print(type(r))
         context={
             "id_sede":request.POST["id_sede"],
             "placa":request.POST["placa"],
             "fecha":request.POST["fecha"],
             "hora":request.POST["hora"],
-            "nivel":Niveles.objects.all()
+            "nivel":Niveles.objects.all(),
+            "estacionamiento":estacionamiento,
+            "reservado":reserva,
         }
         return render(request,'reserve/estacionar.html',context)
     else:

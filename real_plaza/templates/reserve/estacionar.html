@@ -7,10 +7,12 @@
 <div class="container">
     <form action="{% url 'pagos' %}" method="post">
         {% csrf_token %}
+        
         <input type="hidden" name="sede" value="{{ id_sede }}">
         <input type="hidden" name="placa" value="{{ placa }}">
         <input type="hidden" name="fecha" value="{{ fecha }}">
         <input type="hidden" name="hora" value="{{ hora }}">
+        <input type="hidden" name="reservado" value="{{ reservado }}" id="reservado">
         <input type="hidden" name="estacionamiento" value="" id="estacion">
         <table class="table site-block-order-table mb-5 mt-5 " style="width: 50%;">
                 <tbody>
@@ -37,22 +39,19 @@
                     <div class="row">
                         <div class="col-5 border " > 
                             <div class="caja d-flex">
-                                <div class="estaciones" onclick="cambio(1)" id="caja1" >
+                                {% for est in estacionamiento %}
+                                    {% for re in reservado %}
+                            
+                                        
+                                    {% endfor %}
+                                    <div class="estaciones" onclick="cambio({{est.id}})" id="caja{{est.id}}" >
+                                    </div>
+
+
+                                {% endfor %}
                                 
-                                </div>
-                                <div class="estaciones" onclick="cambio(2)" id="caja2" >
-                                
-                                </div>
-                                <div class="estaciones" onclick="cambio(3)" id="caja3">
-                                </div>
-                                <div class="estaciones" onclick="cambio(4)" id="caja4" >
-                                </div>
-                                <div class="estaciones" onclick="cambio(5)" id="caja5">
-                                </div>
-                                <div class="estaciones" onclick="cambio(6)" id="caja6">
-                                </div>
-                                <div class="estaciones" onclick="cambio(7)" id="caja7">
-                                </div>
+
+    
                                 
                             </div>
                             
